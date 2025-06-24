@@ -190,18 +190,6 @@ jobs:
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                mv  .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv  .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
                 mv qoriq .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
