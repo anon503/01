@@ -31,6 +31,7 @@ jobs:
                 make defconfig
                 make download -j32 || true
                 make -j$(nproc) 'IGNORE_ERRORS=n m'
+                make clean
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
