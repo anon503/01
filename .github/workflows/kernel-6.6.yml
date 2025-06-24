@@ -29,6 +29,7 @@ jobs:
                 mv apm821xx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
+                make download -j32 || true
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
