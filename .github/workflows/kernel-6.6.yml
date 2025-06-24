@@ -19,219 +19,261 @@ jobs:
             - name: Refresh Kernel
               run: |
                 git clone https://github.com/openwrt/openwrt.git
-                cp .github/workflows/kernel-6.6.patch openwrt/
                 cd openwrt
+                cp ~/.github/workflows/kernel-6.6.patch openwrt/
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply kernel-6.6.patch
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/apm821xx .config
+                cp ~/.github/workflows/apm821xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/armsr .config
+                cp ~/.github/workflows/armsr .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/at91 .config
+                cp ~/.github/workflows/at91 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ath79 .config
+                cp ~/.github/workflows/ath79 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/bcm27xx .config
+                cp ~/.github/workflows/bcm27xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/bcm47xx .config
+                cp ~/.github/workflows/bcm47xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/bcm4908 .config
+                cp ~/.github/workflows/bcm4908 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/bcm53xx .config
+                cp ~/.github/workflows/bcm53xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/bmips .config
+                cp ~/.github/workflows/bmips .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/d1 .config
+                cp ~/.github/workflows/d1 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/gemini .config
+                cp ~/.github/workflows/gemini .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/imx .config
+                cp ~/.github/workflows/imx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ipq40xx .config
+                cp ~/.github/workflows/ipq40xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ipq806x .config
+                cp ~/.github/workflows/ipq806x .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ixp4xx .config
+                cp ~/.github/workflows/ixp4xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/kirkwood .config
+                cp ~/.github/workflows/kirkwood .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/lantiq .config
+                cp ~/.github/workflows/lantiq .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/layerscape .config
+                cp ~/.github/workflows/layerscape .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/loongarch64 .config
+                cp ~/.github/workflows/loongarch64 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/malta .config
+                cp ~/.github/workflows/malta .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/mediatek .config
+                cp ~/.github/workflows/mediatek .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/mpc85xx .config
+                cp ~/.github/workflows/mpc85xx .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/mvebu .config
+                cp ~/.github/workflows/mvebu .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/mxs .config
+                cp ~/.github/workflows/mxs .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/octeon .config
+                cp ~/.github/workflows/octeon .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/omap .config
+                cp ~/.github/workflows/omap .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/pistachio .config
+                cp ~/.github/workflows/pistachio .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ .config
+                cp ~/.github/workflows/ .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ .config
+                cp ~/.github/workflows/ .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/qoriq .config
+                cp ~/.github/workflows/qoriq .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/qualcommax .config
+                cp ~/.github/workflows/qualcommax .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/ramips .config
+                cp ~/.github/workflows/ramips .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/realtek .config
+                cp ~/.github/workflows/realtek .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/rockchip .config
+                cp ~/.github/workflows/rockchip .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/sifiveu .config
+                cp ~/.github/workflows/sifiveu .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/siflower .config
+                cp ~/.github/workflows/siflower .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/starfive .config
+                cp ~/.github/workflows/starfive .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/stm32 .config
+                cp ~/.github/workflows/stm32 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/sunxi .config
+                cp ~/.github/workflows/sunxi .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/tegra .config
+                cp ~/.github/workflows/tegra .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/x86 .config
+                cp ~/.github/workflows/x86 .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                cp .github/workflows/zynq .config
+                cp ~/.github/workflows/zynq .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 git diff > k-6.6.patch
