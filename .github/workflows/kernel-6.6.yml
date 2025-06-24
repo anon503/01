@@ -20,7 +20,7 @@ jobs:
               run: |
                 git clone https://github.com/openwrt/openwrt.git
                 cd openwrt
-                cp ~/.github/workflows/kernel-6.6.patch openwrt/
+                cp .github/workflows/kernel-6.6.patch openwrt/
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply kernel-6.6.patch
