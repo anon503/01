@@ -31,211 +31,145 @@ jobs:
                 make defconfig
                 make download -j32 || true
                 make tools/install -j$(nproc)
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv armsr .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv ath79 .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv bcm27xx .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv bcm47xx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv bcm4908 .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv bcm53xx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv bmips .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv d1 .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv gemini .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv imx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv ipq40xx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv ipq806x .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv ixp4xx .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv kirkwood .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv lantiq .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv layerscape .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv mediatek .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv mpc85xx .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv mvebu .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv octeon .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv omap .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv pistachio .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv qualcommax .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv ramips .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv realtek .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv rockchip .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
-                rm -f .config
-                rm -rf tmp
-                mv sifiveu .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
                 mv siflower .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv starfive .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
                 mv stm32 .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv sunxi .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv tegra .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv x86 .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
+                make target/linux/{clean,refresh} -j$(nproc) V=s
                 git diff > k-6.6.patch
                 tar -czvf logs.tar.gz logs
                 echo "D=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
