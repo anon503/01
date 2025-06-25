@@ -62,6 +62,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv bcm53xx .config
@@ -92,6 +93,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv ipq40xx .config
@@ -128,6 +130,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv mediatek .config
@@ -158,6 +161,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv pistachio .config
@@ -188,6 +192,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv sifiveu .config
@@ -218,6 +223,7 @@ jobs:
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
+                rm -rf build_dir/target*
                 rm -f .config
                 rm -rf tmp
                 mv tegra .config
