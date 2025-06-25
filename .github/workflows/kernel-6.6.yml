@@ -24,6 +24,7 @@ jobs:
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply kernel-6.6.patch
+                rm -f /target/linux/mvebu/patches-6.6/0004-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
                 rm -f .config
                 rm -rf tmp
                 mv apm821xx .config
