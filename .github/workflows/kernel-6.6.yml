@@ -40,12 +40,6 @@ jobs:
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                mv at91 .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
                 mv ath79 .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
@@ -136,18 +130,6 @@ jobs:
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                mv loongarch64 .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv malta .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
                 mv mediatek .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
@@ -166,12 +148,6 @@ jobs:
                 make target/linux/{clean,refresh} -j$(nproc) || true
                 rm -f .config
                 rm -rf tmp
-                mv mxs .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
                 mv octeon .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
@@ -185,12 +161,6 @@ jobs:
                 rm -f .config
                 rm -rf tmp
                 mv pistachio .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv qoriq .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
@@ -257,12 +227,6 @@ jobs:
                 rm -f .config
                 rm -rf tmp
                 mv x86 .config
-                echo "CONFIG_BUILD_LOG=y" >> .config
-                make defconfig
-                make target/linux/{clean,refresh} -j$(nproc) || true
-                rm -f .config
-                rm -rf tmp
-                mv zynq .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
                 make target/linux/{clean,refresh} -j$(nproc) || true
