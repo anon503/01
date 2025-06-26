@@ -23,7 +23,7 @@ jobs:
                 cd openwrt
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
-                git apply kernel-6.12.patch
+                git apply k-6.12.patch
                 rm -f .config
                 rm -rf tmp
                 mv apm821xx .config
