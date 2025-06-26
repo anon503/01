@@ -51,19 +51,7 @@ Subject: [PATCH] k-6.12.patch
  delete mode 100644 target/linux/mvebu/patches-6.12/0006-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
  delete mode 100644 target/linux/mvebu/patches-6.12/0007-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
 
-diff --git a/scripts/projectsmirrors.json b/scripts/projectsmirrors.json
-index c10054c170..ac23eaff26 100644
---- a/scripts/projectsmirrors.json
-+++ b/scripts/projectsmirrors.json
-@@ -66,6 +66,7 @@
- 		"https://github.com/mj22226/linux/releases/download/v6.6/",
- 		"https://sources.cdn.openwrt.org",
- 		"https://sources.openwrt.org",
--		"https://mirror2.openwrt.org/sources"
-+		"https://mirror2.openwrt.org/sources",
-+		"https://github.com/mj22226/linux/releases/download/v6.12/"
- 	]
- }
+
 diff --git a/target/linux/bcm27xx/patches-6.12/950-0057-MMC-added-alternative-MMC-driver.patch b/target/linux/bcm27xx/patches-6.12/950-0057-MMC-added-alternative-MMC-driver.patch
 index 57f8f2f970..8535111890 100644
 --- a/target/linux/bcm27xx/patches-6.12/950-0057-MMC-added-alternative-MMC-driver.patch
