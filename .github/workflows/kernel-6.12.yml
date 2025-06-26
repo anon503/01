@@ -24,6 +24,7 @@ jobs:
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply k-6.12.patch
+                rm -f target/linux/gemini/patches-6.12/0001-net-ethernet-cortina-Use-TOE-TSO-on-all-TCP.patch
                 git apply pm.patch
                 rm -f .config
                 rm -rf tmp
