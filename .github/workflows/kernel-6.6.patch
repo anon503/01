@@ -1,10 +1,7 @@
-From f81cdb70914c37fdfe7ea31cf8092aab79bdf063 Mon Sep 17 00:00:00 2001
-From: i l <il@il.com>
-Date: Mon, 23 Jun 2025 10:35:20 -0400
-Subject: [PATCH 23/24] kernel: Linx 6.6.95-rc2
-
-https://lore.kernel.org/all/20250623130626.910356556@linuxfoundation.org
-https://lore.kernel.org/all/20250624121409.093630364@linuxfoundation.org
+From 78dff937e53fea2ae01af571d150d74422babd82 Mon Sep 17 00:00:00 2001
+From: Marty Jones <mj8263788@gmail.com>
+Date: Wed, 25 Jun 2025 20:18:30 -0400
+Subject: [PATCH] kernel-6.6
 
 ---
  scripts/projectsmirrors.json                  |  1 +
@@ -19,9 +16,18 @@ https://lore.kernel.org/all/20250624121409.093630364@linuxfoundation.org
  .../generic/hack-6.6/902-debloat_proc.patch   |  2 +-
  target/linux/generic/kernel-6.6               |  4 +-
  .../pending-6.6/532-jffs2_eofdetect.patch     |  2 +-
+ ...7xx-propagate-error-from-armada_37xx.patch |  2 +-
+ ...7xx-propagate-error-from-armada_37xx.patch | 36 ---------------
+ ...7xx-propagate-error-from-armada_37xx.patch | 42 ------------------
+ ...7xx-propagate-error-from-armada_37xx.patch | 35 ---------------
+ ...7xx-propagate-error-from-armada_37xx.patch | 31 -------------
  .../810-uvc-add-iPassion-iP2970-support.patch |  2 +-
- 13 files changed, 16 insertions(+), 59 deletions(-)
+ 18 files changed, 17 insertions(+), 204 deletions(-)
  delete mode 100644 target/linux/generic/backport-6.6/201-v6.16-mips-Add-std-flag-specified.patch
+ delete mode 100644 target/linux/mvebu/patches-6.6/0004-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+ delete mode 100644 target/linux/mvebu/patches-6.6/0005-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+ delete mode 100644 target/linux/mvebu/patches-6.6/0006-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+ delete mode 100644 target/linux/mvebu/patches-6.6/0007-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
 
 diff --git a/scripts/projectsmirrors.json b/scripts/projectsmirrors.json
 index 9bc2d7ac10..c10054c170 100644
@@ -238,6 +244,187 @@ index 744fbd0e21..88bb14a02a 100644
   			return err;
   	}
   
+diff --git a/target/linux/mvebu/patches-6.6/0003-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch b/target/linux/mvebu/patches-6.6/0003-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+index 2483dedfae..2d7b6b5176 100644
+--- a/target/linux/mvebu/patches-6.6/0003-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
++++ b/target/linux/mvebu/patches-6.6/0003-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+@@ -18,7 +18,7 @@ Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+ 
+ --- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+ +++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-@@ -432,9 +432,7 @@ static int armada_37xx_gpio_direction_ou
++@@ -433,9 +433,7 @@ static int armada_37xx_gpio_direction_ou
+  	reg = OUTPUT_EN;
+  	armada_37xx_update_reg(&reg, &en_offset);
+  
+diff --git a/target/linux/mvebu/patches-6.6/0004-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch b/target/linux/mvebu/patches-6.6/0004-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+deleted file mode 100644
+index 4fe9f1b7b8..0000000000
+--- a/target/linux/mvebu/patches-6.6/0004-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
++++ /dev/null
+@@ -1,36 +0,0 @@
+-From 57273ff8bb16f3842c2597b5bbcd49e7fa12edf7 Mon Sep 17 00:00:00 2001
+-From: Gabor Juhos <j4g8y7@gmail.com>
+-Date: Wed, 14 May 2025 21:18:35 +0200
+-Subject: [PATCH 4/7] pinctrl: armada-37xx: propagate error from
+- armada_37xx_gpio_get()
+-
+-The regmap_read() function can fail, so propagate its error up to
+-the stack instead of silently ignoring that.
+-
+-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-4-07e9ac1ab737@gmail.com
+-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+----
+- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 5 ++++-
+- 1 file changed, 4 insertions(+), 1 deletion(-)
+-
+---- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-+++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-@@ -440,11 +440,14 @@ static int armada_37xx_gpio_get(struct g
+- 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
+- 	unsigned int reg = INPUT_VAL;
+- 	unsigned int val, mask;
+-+	int ret;
+- 
+- 	armada_37xx_update_reg(&reg, &offset);
+- 	mask = BIT(offset);
+- 
+--	regmap_read(info->regmap, reg, &val);
+-+	ret = regmap_read(info->regmap, reg, &val);
+-+	if (ret)
+-+		return ret;
+- 
+- 	return (val & mask) != 0;
+- }
+diff --git a/target/linux/mvebu/patches-6.6/0005-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch b/target/linux/mvebu/patches-6.6/0005-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+deleted file mode 100644
+index 2395a0665f..0000000000
+--- a/target/linux/mvebu/patches-6.6/0005-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
++++ /dev/null
+@@ -1,42 +0,0 @@
+-From bfa0ff804ffa8b1246ade8be08de98c9eb19d16f Mon Sep 17 00:00:00 2001
+-From: Gabor Juhos <j4g8y7@gmail.com>
+-Date: Wed, 14 May 2025 21:18:36 +0200
+-Subject: [PATCH 5/7] pinctrl: armada-37xx: propagate error from
+- armada_37xx_pmx_gpio_set_direction()
+-
+-The armada_37xx_gpio_direction_{in,out}put() functions can fail, so
+-propagate their error values back to the stack instead of silently
+-ignoring those.
+-
+-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-5-07e9ac1ab737@gmail.com
+-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+----
+- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 7 ++++---
+- 1 file changed, 4 insertions(+), 3 deletions(-)
+-
+---- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-+++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-@@ -472,16 +472,17 @@ static int armada_37xx_pmx_gpio_set_dire
+- {
+- 	struct armada_37xx_pinctrl *info = pinctrl_dev_get_drvdata(pctldev);
+- 	struct gpio_chip *chip = range->gc;
+-+	int ret;
+- 
+- 	dev_dbg(info->dev, "gpio_direction for pin %u as %s-%d to %s\n",
+- 		offset, range->name, offset, input ? "input" : "output");
+- 
+- 	if (input)
+--		armada_37xx_gpio_direction_input(chip, offset);
+-+		ret = armada_37xx_gpio_direction_input(chip, offset);
+- 	else
+--		armada_37xx_gpio_direction_output(chip, offset, 0);
+-+		ret = armada_37xx_gpio_direction_output(chip, offset, 0);
+- 
+--	return 0;
+-+	return ret;
+- }
+- 
+- static int armada_37xx_gpio_request_enable(struct pinctrl_dev *pctldev,
+diff --git a/target/linux/mvebu/patches-6.6/0006-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch b/target/linux/mvebu/patches-6.6/0006-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+deleted file mode 100644
+index 9aac2e58e1..0000000000
+--- a/target/linux/mvebu/patches-6.6/0006-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
++++ /dev/null
+@@ -1,35 +0,0 @@
+-From 6481c0a83367b0672951ccc876fbae7ee37b594b Mon Sep 17 00:00:00 2001
+-From: Gabor Juhos <j4g8y7@gmail.com>
+-Date: Wed, 14 May 2025 21:18:37 +0200
+-Subject: [PATCH 6/7] pinctrl: armada-37xx: propagate error from
+- armada_37xx_gpio_get_direction()
+-
+-The regmap_read() function can fail, so propagate its error up to
+-the stack instead of silently ignoring that.
+-
+-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-6-07e9ac1ab737@gmail.com
+-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+----
+- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 5 ++++-
+- 1 file changed, 4 insertions(+), 1 deletion(-)
+-
+---- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-+++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-@@ -402,10 +402,13 @@ static int armada_37xx_gpio_get_directio
+- 	struct armada_37xx_pinctrl *info = gpiochip_get_data(chip);
+- 	unsigned int reg = OUTPUT_EN;
+- 	unsigned int val, mask;
+-+	int ret;
+- 
+- 	armada_37xx_update_reg(&reg, &offset);
+- 	mask = BIT(offset);
+--	regmap_read(info->regmap, reg, &val);
+-+	ret = regmap_read(info->regmap, reg, &val);
+-+	if (ret)
+-+		return ret;
+- 
+- 	if (val & mask)
+- 		return GPIO_LINE_DIRECTION_OUT;
+diff --git a/target/linux/mvebu/patches-6.6/0007-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch b/target/linux/mvebu/patches-6.6/0007-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
+deleted file mode 100644
+index 6c14e50b4a..0000000000
+--- a/target/linux/mvebu/patches-6.6/0007-v6.16-pinctrl-armada-37xx-propagate-error-from-armada_37xx.patch
++++ /dev/null
+@@ -1,31 +0,0 @@
+-From 4229c28323db141eda69cb99427be75d3edba071 Mon Sep 17 00:00:00 2001
+-From: Gabor Juhos <j4g8y7@gmail.com>
+-Date: Wed, 14 May 2025 21:18:38 +0200
+-Subject: [PATCH 7/7] pinctrl: armada-37xx: propagate error from
+- armada_37xx_pmx_set_by_name()
+-
+-The regmap_update_bits() function can fail, so propagate its error
+-up to the stack instead of silently ignoring that.
+-
+-Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+-Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+-Link: https://lore.kernel.org/20250514-pinctrl-a37xx-fixes-v2-7-07e9ac1ab737@gmail.com
+-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+----
+- drivers/pinctrl/mvebu/pinctrl-armada-37xx.c | 4 +---
+- 1 file changed, 1 insertion(+), 3 deletions(-)
+-
+---- a/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-+++ b/drivers/pinctrl/mvebu/pinctrl-armada-37xx.c
+-@@ -358,9 +358,7 @@ static int armada_37xx_pmx_set_by_name(s
+- 
+- 	val = grp->val[func];
+- 
+--	regmap_update_bits(info->regmap, reg, mask, val);
+--
+--	return 0;
+-+	return regmap_update_bits(info->regmap, reg, mask, val);
+- }
+- 
+- static int armada_37xx_pmx_set(struct pinctrl_dev *pctldev,
 diff --git a/target/linux/ramips/patches-6.6/810-uvc-add-iPassion-iP2970-support.patch b/target/linux/ramips/patches-6.6/810-uvc-add-iPassion-iP2970-support.patch
 index 01ecb16aeb..6c6cff13c9 100644
 --- a/target/linux/ramips/patches-6.6/810-uvc-add-iPassion-iP2970-support.patch
