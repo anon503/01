@@ -24,6 +24,7 @@ jobs:
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply kernel-6.6.patch
+                git apply pm.patch
                 rm -f .config
                 rm -rf tmp
                 mv apm821xx .config
