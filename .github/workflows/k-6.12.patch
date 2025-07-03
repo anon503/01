@@ -623,7 +623,7 @@ index 91260b8a1c..79851af14f 100644
 -LINUX_VERSION-6.12 = .35
 -LINUX_KERNEL_HASH-6.12.35 = 05f4e0b01dde578c3328eb539d305cccec7b84e939f6dd5f21fdaf5f313da748
 +LINUX_VERSION-6.12 = .36
-+LINUX_KERNEL_HASH-6.12.36 = d1b317a79b17a906bf04f8cea223778644969fdbfb20980dd22beeff0c05824d
++LINUX_KERNEL_HASH-6.12.36 = 1137933cae2cd3df2266c5043a6276adf1d59184aa62472d32c6c7e3d43fea4c
 diff --git a/target/linux/generic/pending-6.12/681-net-remove-NETIF_F_GSO_FRAGLIST-from-NETIF_F_GSO_SOF.patch b/target/linux/generic/pending-6.12/681-net-remove-NETIF_F_GSO_FRAGLIST-from-NETIF_F_GSO_SOF.patch
 index 9788ded24c..34e7a44beb 100644
 --- a/target/linux/generic/pending-6.12/681-net-remove-NETIF_F_GSO_FRAGLIST-from-NETIF_F_GSO_SOF.patch
