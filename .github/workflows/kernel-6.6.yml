@@ -21,6 +21,7 @@ jobs:
                 git clone https://github.com/openwrt/openwrt.git
                 cp -rf .github/workflows/* openwrt/
                 cd openwrt
+                rm -rf target/linux/generic/pending-6.6/650-Revert-ipv6-save-dontfrag-in-cork.patch
                 ./scripts/feeds update -a
                 ./scripts/feeds install -a
                 git apply kernel-6.6.patch
