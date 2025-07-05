@@ -36,6 +36,12 @@ jobs:
                 make target/linux/{clean,refresh} -j$(nproc) V=s
                 rm -f .config
                 rm -rf tmp
+                mv airoha .config
+                echo "CONFIG_BUILD_LOG=y" >> .config
+                make defconfig
+                make target/linux/{clean,refresh} -j$(nproc) V=s
+                rm -f .config
+                rm -rf tmp
                 mv armsr .config
                 echo "CONFIG_BUILD_LOG=y" >> .config
                 make defconfig
